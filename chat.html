@@ -791,19 +791,10 @@ document.getElementById('noti-wrapper').onclick = (e) => {
 
 // Hàm dùng để gửi thông báo mới từ hệ thống (Bạn có thể gọi hàm này ở bất cứ đâu)
 function sendSystemNotification(title, message, color = "#ccc") {
-    // ... các đoạn code cũ giữ nguyên ...
-
-    // Danh sách các tiếng thông báo khác nhau
-    const sounds = [
-        'https://www.soundjay.com/buttons/sounds/button-3.mp3',
-        'https://www.soundjay.com/buttons/sounds/button-09.mp3',
-        'https://www.soundjay.com/buttons/sounds/button-10.mp3'
-    ];
-    
-    // Chọn ngẫu nhiên 1 tiếng trong danh sách
-    const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-    new Audio(randomSound).play();
-
+    const div = document.createElement('div');
+    div.className = 'noti-item';
+    div.style.color = color;
+    div.innerHTML = `<b>${title}:</b> ${message}`;
     
     // Thêm vào danh sách thông báo
     const listContent = document.getElementById('noti-list-content');
